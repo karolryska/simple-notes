@@ -1,13 +1,141 @@
 @import "~normalize.css";
 
 @import "_variables";
-@import "modules/hello.scss";
+
+* {
+  box-sizing: border-box;
+}
 
 body {
-  background: $wtf;
-  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  font-family: $Roboto;
+  letter-spacing: 1px;
+}
+
+.wrapper {
+  padding: 40px;
+  margin: 40px;
+  height: 400px;
+  width: 500px;
+  border-radius: 20px;
+  background-color: $grey;
+}
+
+.form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  &__wrapper {
+    margin: 0 0 20px;
+    display: flex;
+    flex-direction: column;
+
+    &--text {
+      flex-grow: 2;
+    }
+  }
+
+  &__label {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  &__input {
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+
+    &--title {
+      padding-left: 10px;
+      min-height: 20px;
+      line-height: 30px;
+    }
+
+    &--text {
+      flex-grow: 2;
+      width: 100%;
+      resize: none;
+      padding: 10px 10px 0 10px;
+      line-height: 20px;
+    }
+  }
+
+  &__buttons {
+    height: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+}
+
+.button {
+  font-size: 14px;
+  letter-spacing: 1.4px;
+  background-color: $light-grey;
+  border-radius: 8px;
+  border: none;
+  transition: 0.4s;
+
+  &:hover {
+    background-color: $dark-grey;
+    color: white;
+    cursor: pointer;
+  }
+
+  &:disabled {
+    background-color: $light-grey;
+    color: white;
+    cursor: auto;
+  }
+
+  &--load {
+    position: relative;
+  }
+
+  &__info {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    height: 24px;
+    min-width: 24px;
+    border-radius: 12px;
+    background-color: $info-red;
+    color: white;
+    line-height: 24px;
+    font-size: 12px;
+  }
+}
+
+.storage {
+  display: none;
+  margin: 0;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  &__title {
+    margin: 0 0 6px 0;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__saved-note {
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 6px;
+    padding: 6px;
+    cursor: pointer;
+  }
 }
