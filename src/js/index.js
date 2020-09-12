@@ -50,7 +50,7 @@ buttonSave.addEventListener('click', (e) => {
 
 buttonLoad.addEventListener('click', (e) => {
     e.preventDefault();
-    storageWrapper.style.display = "block";
+    storageWrapper.classList.toggle("storage--active");
     storage = JSON.parse(localStorage.getItem('notes'));
     if (noteList) {
         noteList.innerHTML = "";
@@ -71,6 +71,7 @@ storageWrapper.addEventListener("click", (e) => {
             index = i;
         }
     }
+    storageWrapper.classList.toggle("storage--active");
     inputTitle.value = storage[index].title;
     inputText.value = storage[index].text;
 })
